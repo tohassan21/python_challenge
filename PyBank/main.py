@@ -9,6 +9,7 @@ file_to_output = os.path.join("analysis", "budget_analysis.txt")  # Output file 
 # Define variables to track the financial data
 total_months = 0
 total_net = 0
+
 # Add more variables to track other necessary financial data
 first_row = 0
 net_change = []

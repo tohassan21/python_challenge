@@ -33,7 +33,7 @@ with open(file_to_load) as election_data:
     for row in reader:
 
         # Print a loading indicator (for large datasets)
-        #print(". ", end="")
+        #print(". ", end="") 
 
         # Increment the total vote count for each row
         total_votes += 1
@@ -49,21 +49,21 @@ with open(file_to_load) as election_data:
         if candidate_name in candidate_votes:
             candidate_votes[candidate_name] += 1
 
-#access vote counts from dictionary
+#Access vote counts from dictionary
 charles_votes = candidate_votes["Charles Casper Stockham"]
 diana_votes = candidate_votes["Diana DeGette"]
 raymon_votes = candidate_votes["Raymon Anthony Doane"]
 
-#calculate percentages
+#Calculate percentages
 charles_percent = charles_votes / total_votes * 100
 diana_percent = diana_votes / total_votes * 100
 raymon_percent = raymon_votes / total_votes * 100
 
-#determine winning candidate
+#Determine winning candidate
 winning_candidate = max(candidate_votes, key=candidate_votes.get)
 winning_count = candidate_votes[winning_candidate]
 
-#output info
+#Output info
 output = (
     "Election Results\n"
     "-------------------------\n"
@@ -79,6 +79,6 @@ output = (
 
 # Open a text file to save the output:
 with open(file_to_output, "w") as txt_file:
-    #print output to terminal
+    #Print output to terminal
     print(output)
     txt_file.write(output)
