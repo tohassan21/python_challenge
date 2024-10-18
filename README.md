@@ -10,3 +10,5 @@ Expert Learning Assistant helped me:
 PyPoll Sources
 Expert Learning Assistant helped me:
     figure out how to determine the winning candidate
+    how to make votes populate in dictionary
+    how to pull winning candidate from dictionary

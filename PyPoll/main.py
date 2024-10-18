@@ -46,12 +46,13 @@ with open(file_to_load) as election_data:
             candidate_list.append(candidate_name)
 
         # Add a vote to the candidate's count
-        if candidate_name == "Charles Casper Stockham":
-            charles_votes += 1
-        elif candidate_name == "Diana DeGette":
-            diana_votes += 1
-        elif candidate_name == "Raymon Anthony Doane":
-            raymon_votes += 1
+        if candidate_name in candidate_votes:
+            candidate_votes[candidate_name] += 1
+
+#access vote counts from dictionary
+charles_votes = candidate_votes["Charles Casper Stockham"]
+diana_votes = candidate_votes["Diana DeGette"]
+raymon_votes = candidate_votes["Raymon Anthony Doane"]
 
 #calculate percentages
 charles_percent = charles_votes / total_votes * 100
@@ -59,18 +60,8 @@ diana_percent = diana_votes / total_votes * 100
 raymon_percent = raymon_votes / total_votes * 100
 
 #determine winning candidate
-winning_candidate = ""
-winning_count = 0
-
-if charles_votes > winning_count:
-    winning_count = charles_votes
-    winning_candidate = "Charles Casper Stockham"
-if diana_votes > winning_count:
-    winning_count = diana_votes
-    winning_candidate = "Diana DeGette"
-if raymon_votes > winning_count:
-    winning_count = raymon_votes
-    winning_candidate = "Raymon Anthony Doane"
+winning_candidate = max(candidate_votes, key=candidate_votes.get)
+winning_count = candidate_votes[winning_candidate]
 
 #output info
 output = (
